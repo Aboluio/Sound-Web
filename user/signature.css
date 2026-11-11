@@ -1,0 +1,88 @@
+/* =====================================================================
+   SOUND GROUP — SIGNATURE LAYER v14  (loaded last, after elite.css)
+   Finishing pass: motion, depth, type rhythm, focus, player, scrollbars.
+   Same tokens as the admin panel (admin/premium.css) so both panels feel like one product.
+   To go back to v13: remove the signature.css <link> in header.php and signature.js in footer.php.
+   ===================================================================== */
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+::selection { background: rgba(var(--acc-rgb, 233, 201, 125), .32); color: #fff; }
+body { scrollbar-color: #2b1b3d #08060b; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #2b1b3d; border-radius: 99px; border: 2px solid #08060b; }
+::-webkit-scrollbar-thumb:hover { background: #56406f; }
+
+/* reading progress hairline (created by signature.js) */
+.sg-progress { position: fixed; z-index: 2000; left: 0; top: 0; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, rgba(var(--acc-rgb, 233, 201, 125), .2), rgb(var(--acc-rgb, 233, 201, 125))); pointer-events: none; }
+
+/* ---------- type rhythm ---------- */
+.sec-head { align-items: flex-end; padding-bottom: 14px; margin-bottom: 22px; border-bottom: 1px solid var(--el-line, rgba(185, 137, 241, .14)); position: relative; }
+.sec-head::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 72px; height: 2px; border-radius: 2px; background: rgb(var(--acc-rgb, 233, 201, 125)); }
+.sec-head h2 { font-family: var(--el-disp, Georgia, serif); font-weight: 700; letter-spacing: -.02em; font-size: clamp(1.45rem, 2.4vw, 2rem); }
+.sec-ic { box-shadow: 0 10px 24px -12px rgba(var(--acc-rgb, 233, 201, 125), .8); }
+
+/* ---------- cards ---------- */
+.m-card { border: 1px solid var(--el-line2, rgba(255, 255, 255, .08)); border-radius: 22px; overflow: hidden;
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-color .3s, box-shadow .35s; will-change: transform; }
+.m-card:hover, .m-card:focus-within { transform: translateY(-6px); border-color: rgba(var(--acc-rgb, 233, 201, 125), .46);
+  box-shadow: 0 34px 60px -34px rgba(var(--acc-rgb, 233, 201, 125), .45), 0 18px 40px -26px #000; }
+.m-thumb { overflow: hidden; }
+.m-thumb img, .m-thumb video { transition: transform .8s cubic-bezier(.2, .7, .2, 1), opacity .5s; }
+.m-card:hover .m-thumb img, .m-card:hover .m-thumb video { transform: scale(1.07); }
+.m-title { letter-spacing: -.01em; }
+.play-fab { transition: transform .25s cubic-bezier(.2, .7, .2, 1), box-shadow .25s, opacity .25s; }
+.play-fab:hover { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(var(--acc-rgb, 233, 201, 125), .18), 0 16px 34px -10px rgba(var(--acc-rgb, 233, 201, 125), .7); }
+.play-fab:active { transform: scale(.96); }
+img.sg-fade { opacity: 0; }
+img.sg-fade.sg-in { opacity: 1; }
+
+/* chart rows & category chips */
+.tt-row { transition: background .2s, transform .2s; border-radius: 16px; }
+.tt-row:hover { background: rgba(var(--acc-rgb, 233, 201, 125), .07); }
+.sx-cat { transition: transform .2s, background .2s, border-color .2s, color .2s; }
+.sx-cat:hover { transform: translateY(-2px); }
+
+/* ---------- buttons & forms ---------- */
+.btn-sg, .btn-sg-outline, .el-join, .el-premium { transition: transform .2s, box-shadow .25s, background .25s, border-color .25s, color .25s; }
+.btn-sg:hover { transform: translateY(-2px); box-shadow: 0 18px 34px -16px rgba(var(--acc-rgb, 233, 201, 125), .85); }
+.btn-sg:active, .btn-sg-outline:active { transform: translateY(0) scale(.98); }
+.form-control:focus, .form-select:focus, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  border-color: rgba(var(--acc-rgb, 233, 201, 125), .7) !important; box-shadow: 0 0 0 4px rgba(var(--acc-rgb, 233, 201, 125), .14) !important; outline: 0; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid rgb(var(--acc-rgb, 233, 201, 125)); outline-offset: 3px; }
+
+/* ---------- player bar ---------- */
+.sx-player { -webkit-backdrop-filter: blur(22px) saturate(1.4); backdrop-filter: blur(22px) saturate(1.4);
+  background: linear-gradient(180deg, rgba(17, 10, 25, .88), rgba(8, 5, 12, .94)); border-top: 1px solid rgba(185, 137, 241, .22);
+  box-shadow: 0 -24px 60px -28px #000; }
+.sx-range { accent-color: #b989f1; }
+.sx-ctl { transition: transform .2s, color .2s, background .2s; }
+.sx-ctl:hover { transform: scale(1.08); }
+.sx-main { box-shadow: 0 10px 26px -10px rgba(185, 137, 241, .8); }
+
+/* ---------- mobile tab bar & back-to-top ---------- */
+.pm-tabs { -webkit-backdrop-filter: blur(20px) saturate(1.3); backdrop-filter: blur(20px) saturate(1.3); background: rgba(9, 6, 13, .86); border-top: 1px solid rgba(185, 137, 241, .16); }
+.pm-tab { transition: color .2s, transform .2s; }
+.pm-tab.on i { filter: drop-shadow(0 0 10px rgba(185, 137, 241, .7)); }
+.pm-tab:active { transform: scale(.94); }
+.el-top { transition: transform .25s, background .25s, border-color .25s; }
+.el-top:hover { transform: translateY(-3px); }
+
+/* ---------- scroll reveal (only active when signature.js confirms support) ---------- */
+html.sg-reveal .sec, html.sg-reveal .el-foot-top { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); }
+html.sg-reveal .sec.sg-in, html.sg-reveal .el-foot-top.sg-in { opacity: 1; transform: none; }
+
+/* ---------- small screens ---------- */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 76px; }
+  .m-card:hover { transform: none; }
+  .sec-head h2 { font-size: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .m-card, .m-thumb img, .m-thumb video, .play-fab, .tt-row, .sx-cat, .btn-sg, .sx-ctl, .pm-tab, .el-top { transition: none !important; }
+  html.sg-reveal .sec, html.sg-reveal .el-foot-top { opacity: 1; transform: none; transition: none; }
+}
+
+/* Not logged in (login / register pages only): plain top bar, no site menus */
+.is-guest .el-menu,.is-guest .el-search,.is-guest .el-tools>.dropdown,.is-guest .el-premium,.is-guest .el-burger,.is-guest .el-foot,.is-guest .pm-tabs,.is-guest .el-off{display:none!important}
